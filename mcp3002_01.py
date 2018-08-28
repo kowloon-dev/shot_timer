@@ -27,7 +27,7 @@ while True:
     value = (buffer[0]*256+buffer[1]) & 0x3ff
     print (value)
 
-    time.sleep(1)
+    time.sleep(0.5)
 
 
 exit()
