@@ -4,10 +4,16 @@ import wiringpi as pi
 import time
 import datetime
 
+# ブザーを鳴らすためのピン番号を指定
+BUZZER_PIN = 23
 
+# スイッチ用のピン番号を指定
 SW_PIN = 4
 
 pi.wiringPiSetupGpio()
+
+pi.pinMode( BUZZER_PIN, pi.OUTPUT )
+
 pi.pinMode( SW_PIN, pi.INPUT )
 pi.pullUpDnControl( SW_PIN, pi.PUD_DOWN )
 
@@ -20,9 +26,18 @@ pi.pullUpDnControl( SW_PIN, pi.PUD_DOWN )
     #     print("Switch is Off")
 
 
+# 開始時刻を計測
 start_time_dt = datetime.datetime.now()
 print("start_time : " + str(start_time_dt))
 
+# ブザーを指定秒数鳴らす(シューターに対する"撃て"の合図)
+pi.digitalWrite( BUZZER_PIN, pi.HIGH )
+time.sleep(0.2)
+
+# ブザーを止める
+pi.digitalWrite( BUZZER_PIN, pi.LOW )
+
+# 命中を検知するまでのループ処理
 for i in range(4000):
     if ( pi.digitalRead( SW_PIN ) == pi.HIGH ):
         print("Switch is On")
