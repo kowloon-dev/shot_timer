@@ -1,6 +1,6 @@
 import wiringpi as pi
 servo_pin = 18
-set_degree = 90
+set_degree = 100
 
 CYCLE = 20
 MIN_PULSE = 0.5
