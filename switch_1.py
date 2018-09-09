@@ -26,6 +26,8 @@ pi.pullUpDnControl( SW_PIN, pi.PUD_DOWN )
     #     print("Switch is Off")
 
 
+time.sleep(5)
+
 # 開始時刻を計測
 start_time_dt = datetime.datetime.now()
 print("start_time : " + str(start_time_dt))
@@ -76,5 +78,5 @@ else:
     # 戻り値にfailと代入
     result = "FAIL"
 
-print(result)
+print(result + "秒")
 
