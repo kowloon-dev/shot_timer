@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 import wiringpi as pi
-from app import buzzer
-from app import hit_check
+import buzzer
+import hit_check
 import time
 import datetime
-from app import config_import as ci
-from app import log_control as log
+import config_import as ci
+import log_control as log
 
 pi.wiringPiSetupGpio()
 

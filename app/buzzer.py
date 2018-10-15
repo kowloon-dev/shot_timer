@@ -2,8 +2,8 @@
 
 import wiringpi as pi
 import time
-from app import log_control as log
-from app import config_import as ci
+import log_control as log
+import config_import as ci
 import traceback
 
 class Buzzer:
