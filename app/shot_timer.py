@@ -34,3 +34,7 @@ for i in range (0, int(ci.shot_count)):
     print(result)
     
     time.sleep(int(ci.shot_interval))
+
+# トレーニング終了を知らせる合図
+# 1秒のブザーを鳴らす
+bz.buzzer_beep(1)
