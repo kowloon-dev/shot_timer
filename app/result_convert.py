@@ -19,9 +19,10 @@ class ResultConvert:
             log.logging.error(err + traceback.format_exc())
             raise
 
-        # 読み取ったテンプレートHTMLをBeautifulSoupで解釈
+        # 読み取ったテンプレートHTMLをBeautifulSoupで取り込み。オリジナルのテンプレート用HTMLは閉じる
         try:
             self.soup = BeautifulSoup(self.temp_html, "html.parser")
+            self.temp_html.close()
         except:
             err = "テンプレート用HTMLファイルをBeautifulSoupに食わせる処理が失敗.\n"
             log.logging.error(err + traceback.format_exc())
@@ -33,9 +34,8 @@ class ResultConvert:
     def convert(self, result):
 
         self.soup.p.string.replace_with(str(result))
-        print(self.soup)
         
-        # 出力先HTMLファイルの読み込み
+        # 出力先HTMLファイルへの書き込みとクローズ処理
         try:
             result_html = open(ci.result_file, 'w', encoding='utf-8')
             result_html.write(str(self.soup))
