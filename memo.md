@@ -109,7 +109,10 @@ chown root.root amazon-dash.yml
 
 ## Dashボタンでタイマー起動
 
+`amazon-dash.yml`ファイルが存在するディレクトリで`amazon-dash`コマンドを実行
+
 ```commandline
+$ cd shot_timer/app/
 $ sudo amazon-dash run
 Welcome to Amazon-dash v1.3.1 using Python 3.5.3
 Listening for events. Amazon-dash will execute the events associated with the registered buttons.
