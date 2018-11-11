@@ -169,3 +169,7 @@ typings/
 # next.js build output
 .next
 
+# shot timerのリザルト用html
+# 処理のたびに内容が変わる上、毎回新規作成されるので
+# Gitの管理対象から外す
+htdocs/index.html
