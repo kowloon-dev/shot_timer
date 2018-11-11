@@ -7,7 +7,8 @@ gulp.task('default', ['browser-sync']);
 
 gulp.task('browser-sync', function () {
   browserSync({
-    notify: false,
+    open: false, 
+    notify: false, 
     server: {
       baseDir: "../htdocs"
     }
