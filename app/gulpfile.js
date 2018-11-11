@@ -12,7 +12,6 @@ gulp.task('browser-sync', function () {
       baseDir: "../htdocs"
     }
   });
-
-  gulp.watch('htdocs/index.html', reload);
-
+  
+  gulp.watch('../htdocs/index.html', reload);
 });

@@ -37,3 +37,7 @@ buzzer_duration = config.get('Buzzer', 'buzzer_duration')
 # [HitCheck]
 hit_switch_pin = config.get('HitCheck', 'hit_switch_pin')
 hit_deadline = config.get('HitCheck', 'hit_deadline')
+
+# [HTML]
+template_file = config.get('HTML', 'template_file')
+result_file = config.get('HTML', 'result_file')
