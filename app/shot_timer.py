@@ -21,7 +21,7 @@ time.sleep(int(ci.standby_sec))
 for i in range (0, int(ci.shot_count)):
 
     # 前回の結果を破棄して、ブラウザ上の表記をブランクにする
-    result_html = rc.convert("")
+    result_html = rc.convert(" ")
 
     # 確認用
     print(str((i) +1)+ "発目")
@@ -46,7 +46,7 @@ for i in range (0, int(ci.shot_count)):
 # トレーニング終了を知らせる
 
 # 最後の結果を破棄して、初期状態(ブランク)に戻す
-result_html = rc.convert("")
+result_html = rc.convert(" ")
 
 # 1秒のブザーを鳴らす
 bz.buzzer_beep(1)
