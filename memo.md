@@ -121,7 +121,6 @@ devices:
 補足:  
 delayに「0」を指定したところ、Dashボタン押下時にタイマーが2重起動してしまったため、5~10程度の適当な値を指定すること。  
 
-
 ```commandline
 chmod 660 amazon-dash.yml
 sudo chown root.root amazon-dash.yml
