@@ -84,6 +84,22 @@ sudo pip3 install amazon-dash
 
 ```
 
+## DashボタンのDiscovery
+
+```commandline
+$ sudo amazon-dash discovery
+Welcome to Amazon-dash v1.3.1 using Python 3.5.3
+The discovery command lists the devices that are connected in your network. Each device will only be listed once. After executing this command wait approximately 10 seconds before pressing the Amazon Dash button. After pressing the button, the Mac address of the button will immediately appear on the screen. Remember the address to be able to create the configuration file.
+
+(Dashボタンを押下)
+
+c8:4c:75:xx:xx:xx
+cc:e1:d5:xx:xx:xx
+18:74:2e:xx:xx:xx (Amazon Device)   ←検出されたことを確認
+
+Ctrl+Cで終了
+```
+
 ## yamlファイルの準備
 
 ```commandline
@@ -94,7 +110,7 @@ vi amazon-dash.yml
 amazon-dash.yml
 ```yaml
 settings:
-  delay: 0
+  delay: 5
 devices:
   18:74:2e:xx:xx:xx:   ←DashボタンのMACアドレス(末尾のコロンは必要)
     name: (Dashボタン本体のラベル名など)
@@ -102,9 +118,17 @@ devices:
     cmd:  /usr/bin/python3 /home/pi/shot_timer/app/shot_timer.py
 ```
 
+補足:  
+delayに「0」を指定したところ、Dashボタン押下時にタイマーが2重起動してしまったため、5~10程度の適当な値を指定すること。  
+
+
 ```commandline
 chmod 660 amazon-dash.yml
-chown root.root amazon-dash.yml
+sudo chown root.root amazon-dash.yml
+
+ls -l
+-rw-rw---- 1 root root  140 Nov 11 21:09 amazon-dash.yml
+
 ```
 
 ## Dashボタンでタイマー起動
