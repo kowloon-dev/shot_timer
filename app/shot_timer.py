@@ -20,6 +20,9 @@ time.sleep(int(ci.standby_sec))
 
 for i in range (0, int(ci.shot_count)):
 
+    # 前回の結果を破棄して、初期表示"----"に変更
+    result_html = rc.convert("----")
+
     # 確認用
     print(str((i) +1)+ "発目")
     # 開始時刻を計測
@@ -35,14 +38,17 @@ for i in range (0, int(ci.shot_count)):
     
     print(result)
     
-    # 2018/11/11 Add ここから
-    # 結果をテンプレートHTMLに出力する処理
+    # 結果をHTMLに出力する処理
     result_html = rc.convert(result)
-    # 2018/11/11 Add ここまで
-    
-    
+
     time.sleep(int(ci.shot_interval))
 
-# トレーニング終了を知らせる合図
+# トレーニング終了を知らせる
+
+# 最後の結果を破棄して、初期表示"----"に戻す
+result_html = rc.convert("----")
+
 # 1秒のブザーを鳴らす
 bz.buzzer_beep(1)
+
+exit()
