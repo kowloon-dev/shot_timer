@@ -75,6 +75,51 @@ $ sudo apt-get install libi2c-dev
 $ sudo apt-get install i2c-tools
 ```
 
+# Amazon Dashボタン連携
+
+## Pythonモジュールのインストール
+
+```commandline
+sudo pip3 install amazon-dash
+
+```
+
+## yamlファイルの準備
+
+```commandline
+cd shot_timer/app/
+vi amazon-dash.yml
+```
+
+amazon-dash.yml
+```yaml
+settings:
+  delay: 0
+devices:
+  18:74:2e:xx:xx:xx:   ←DashボタンのMACアドレス(末尾のコロンは必要)
+    name: (Dashボタン本体のラベル名など)
+    user: pi
+    cmd:  /usr/bin/python3 /home/pi/shot_timer/app/shot_timer.py
+```
+
+```commandline
+chmod 660 amazon-dash.yml
+chown root.root amazon-dash.yml
+```
+
+## Dashボタンでタイマー起動
+
+```commandline
+$ sudo amazon-dash run
+Welcome to Amazon-dash v1.3.1 using Python 3.5.3
+Listening for events. Amazon-dash will execute the events associated with the registered buttons.
+```
+
+Dashボタンを1回だけ押下
+
+タイマーが起動することを確認する
+
+
 # 使い方
 
 1. appディレクトリに移動し、Gulpを起動
