@@ -1,0 +1,7 @@
+settings:
+  delay: 0
+devices:
+  18:74:2e:xx:xx:xx:
+    name: 南アルプス店天水
+    user: pi
+    cmd:  /usr/bin/python3 /home/pi/shot_timer/app/shot_timer.py
